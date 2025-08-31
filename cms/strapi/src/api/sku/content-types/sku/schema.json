@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "skus",
+  "info": {
+    "singularName": "sku",
+    "pluralName": "skus",
+    "displayName": "SKU"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "pricePaise": {
+      "type": "integer",
+      "required": true
+    },
+    "benefits": {
+      "type": "json"
+    },
+    "kind": {
+      "type": "enumeration",
+      "enum": [
+        "text",
+        "bundle",
+        "call",
+        "image"
+      ],
+      "default": "text"
+    }
+  }
+}

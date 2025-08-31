@@ -1,0 +1,29 @@
+
+openapi: 3.0.3
+info:
+  title: Sangini Showcase API (Demo)
+  version: 0.1.0
+paths:
+  /otp/request:
+    post:
+      summary: Request WhatsApp OTP (mock)
+      requestBody:
+        required: true
+        content: { application/json: { schema: { type: object, properties: { phone: { type: string } } } } }
+      responses: { '200': { description: OK } }
+  /otp/verify:
+    post:
+      summary: Verify OTP (0000 in demo)
+      responses: { '200': { description: OK } }
+  /models:
+    get: { summary: List models, responses: { '200': { description: OK } } }
+  /categories:
+    get: { summary: List categories, responses: { '200': { description: OK } } }
+  /scenes:
+    get: { summary: List scenes, responses: { '200': { description: OK } } }
+  /skus:
+    get: { summary: List SKUs, responses: { '200': { description: OK } } }
+  /wallet:
+    get: { summary: Wallet balance, responses: { '200': { description: OK } } }
+  /wallet/redeem:
+    post: { summary: Redeem SKU, responses: { '200': { description: OK } } }

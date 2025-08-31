@@ -1,0 +1,113 @@
+[
+  {
+    "id": "m01",
+    "name": "Aisha",
+    "tagline": "Playful & caring, speaks Hindi+English",
+    "langs": [
+      "hi",
+      "en"
+    ],
+    "categories": [
+      "romance",
+      "office_romance"
+    ],
+    "opener": "Hey you. Ready for a late‑night chat?"
+  },
+  {
+    "id": "m02",
+    "name": "Niharika",
+    "tagline": "Confident neighbour next door (Hindi)",
+    "langs": [
+      "hi"
+    ],
+    "categories": [
+      "neighbours_adults",
+      "festival_flirt"
+    ],
+    "opener": "Knocked on your door… now knocking here 😌"
+  },
+  {
+    "id": "m03",
+    "name": "Ananya",
+    "tagline": "College alumna (21+) — witty",
+    "langs": [
+      "en",
+      "hi"
+    ],
+    "categories": [
+      "college_adults",
+      "cosplay"
+    ],
+    "opener": "We definitely met at the fest, right?"
+  },
+  {
+    "id": "m04",
+    "name": "Meera",
+    "tagline": "Marathi speaker, gentle & warm",
+    "langs": [
+      "mr",
+      "en"
+    ],
+    "categories": [
+      "romance",
+      "newlyweds_adults"
+    ],
+    "opener": "Chaha first, secrets later?"
+  },
+  {
+    "id": "m05",
+    "name": "Pari",
+    "tagline": "Punjabi banter pro",
+    "langs": [
+      "pa",
+      "hi",
+      "en"
+    ],
+    "categories": [
+      "festival_flirt",
+      "gym_buddies"
+    ],
+    "opener": "Tera smile → mera weakness 😏"
+  },
+  {
+    "id": "m06",
+    "name": "Ira",
+    "tagline": "Tamil+English, office crush vibes",
+    "langs": [
+      "ta",
+      "en"
+    ],
+    "categories": [
+      "office_romance"
+    ],
+    "opener": "We keep ending up on the same shift… coincidence?"
+  },
+  {
+    "id": "m07",
+    "name": "Sara",
+    "tagline": "Telugu + English, bold but sweet",
+    "langs": [
+      "te",
+      "en"
+    ],
+    "categories": [
+      "gym_buddies",
+      "romance"
+    ],
+    "opener": "You and I—same gym time again?"
+  },
+  {
+    "id": "m08",
+    "name": "Riya",
+    "tagline": "Bengali + English, poetic",
+    "langs": [
+      "bn",
+      "en"
+    ],
+    "categories": [
+      "romance",
+      "festival_flirt"
+    ],
+    "opener": "Kobita or coffee first?"
+  }
+]

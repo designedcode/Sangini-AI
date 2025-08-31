@@ -1,0 +1,32 @@
+[
+  {
+    "id": "cab_meet_cute",
+    "name": "Shared cab meet‑cute",
+    "opener": "We matched in a shared cab—want to keep talking?"
+  },
+  {
+    "id": "office_peers",
+    "name": "Office after‑hours (peers)",
+    "opener": "We’re the last two in the office… should we take a break together?"
+  },
+  {
+    "id": "new_neighbours",
+    "name": "New neighbours",
+    "opener": "Hi, I just moved next door—need help setting up… or company?"
+  },
+  {
+    "id": "gym_crush",
+    "name": "Gym crush",
+    "opener": "I’ve seen your workout—mind sharing a playlist while we chat?"
+  },
+  {
+    "id": "festival_flirt",
+    "name": "Festival flirt",
+    "opener": "Holi colours still on my face—video call tonight?"
+  },
+  {
+    "id": "college_reunion",
+    "name": "College reunion (21+)",
+    "opener": "Guess who I spotted at the reunion—you."
+  }
+]

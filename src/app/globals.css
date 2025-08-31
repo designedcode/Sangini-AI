@@ -1,0 +1,10 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body, #__next { height: 100%; }
+body { @apply bg-black text-white; }
+.container { @apply max-w-md mx-auto px-3; }
+header.app { @apply sticky top-0 z-40 bg-black/80 backdrop-blur border-b border-white/10; }

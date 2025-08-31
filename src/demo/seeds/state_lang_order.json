@@ -1,0 +1,42 @@
+{
+  "Punjab": [
+    "pa",
+    "en",
+    "hi"
+  ],
+  "Delhi": [
+    "hi",
+    "en",
+    "pa"
+  ],
+  "Maharashtra": [
+    "mr",
+    "en",
+    "hi"
+  ],
+  "West Bengal": [
+    "bn",
+    "en",
+    "hi"
+  ],
+  "Tamil Nadu": [
+    "ta",
+    "en",
+    "hi"
+  ],
+  "Telangana": [
+    "te",
+    "en",
+    "hi"
+  ],
+  "Karnataka": [
+    "kn",
+    "en",
+    "hi"
+  ],
+  "Gujarat": [
+    "gu",
+    "en",
+    "hi"
+  ]
+}

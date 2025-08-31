@@ -1,0 +1,68 @@
+[
+  {
+    "id": "quick",
+    "label": "Quick Chat",
+    "pricePaise": 500,
+    "benefits": [
+      "30 messages"
+    ],
+    "kind": "text"
+  },
+  {
+    "id": "tonight",
+    "label": "Tonight Pass",
+    "pricePaise": 1000,
+    "benefits": [
+      "Unlimited text till midnight"
+    ],
+    "kind": "text"
+  },
+  {
+    "id": "day",
+    "label": "Day Pass",
+    "pricePaise": 2000,
+    "benefits": [
+      "Unlimited text today",
+      "+5 min calls"
+    ],
+    "kind": "bundle"
+  },
+  {
+    "id": "week",
+    "label": "Week Pass",
+    "pricePaise": 5000,
+    "benefits": [
+      "Unlimited text 7 days",
+      "+15 min calls"
+    ],
+    "kind": "bundle"
+  },
+  {
+    "id": "month",
+    "label": "Monthly",
+    "pricePaise": 19900,
+    "benefits": [
+      "Unlimited text 30 days",
+      "+30 min calls"
+    ],
+    "kind": "bundle"
+  },
+  {
+    "id": "call3",
+    "label": "3 min Call",
+    "pricePaise": 1000,
+    "benefits": [
+      "3 min"
+    ],
+    "kind": "call"
+  },
+  {
+    "id": "img3",
+    "label": "3 pics",
+    "pricePaise": 1000,
+    "benefits": [
+      "3 generated pics"
+    ],
+    "kind": "image"
+  }
+]

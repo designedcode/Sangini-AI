@@ -1,0 +1,34 @@
+[
+  {
+    "id": "romance",
+    "name": "Romance"
+  },
+  {
+    "id": "newlyweds_adults",
+    "name": "Newlyweds (Adults)"
+  },
+  {
+    "id": "college_adults",
+    "name": "College (21+)"
+  },
+  {
+    "id": "office_romance",
+    "name": "Office Romance"
+  },
+  {
+    "id": "neighbours_adults",
+    "name": "Neighbours (Adults)"
+  },
+  {
+    "id": "gym_buddies",
+    "name": "Gym Buddies"
+  },
+  {
+    "id": "festival_flirt",
+    "name": "Festival Flirt"
+  },
+  {
+    "id": "cosplay",
+    "name": "Cosplay"
+  }
+]
