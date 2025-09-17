@@ -1,30 +1,43 @@
+import './globals.css'
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import AppProvider from './providers'
 
-import "./globals.css";
-import type { Metadata } from "next";
-import BottomBar from "@/components/BottomBar";
-import Hamburger from "@/components/Hamburger";
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "Sangini AI (Showcase)",
-  description: "Showcase mode — no images, demo data only",
-  themeColor: "#000000",
-  manifest: "/manifest.webmanifest"
-};
+  title: 'Sangini AI - AI Companion Chat',
+  description: 'AI companion chat in Indian languages with voice calling and personalized conversations',
+  manifest: '/manifest.webmanifest',
+  themeColor: '#000000',
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Sangini AI'
+  }
+}
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
-      <body>
-        <header className="app">
-          <div className="container flex items-center h-12">
-            <Hamburger />
-            <div className="font-bold text-lg ml-2">Sangini AI</div>
-          </div>
-        </header>
-        <main className="pb-16 container">{children}</main>
-        <BottomBar />
-        <script async src="/sw.js"></script>
+      <head>
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <meta name="theme-color" content="#000000" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Sangini AI" />
+        <link rel="apple-touch-icon" href="/icon-192.svg" />
+      </head>
+      <body className={`${inter.className} bg-white`}>
+        <AppProvider>
+          {children}
+        </AppProvider>
       </body>
     </html>
-  );
+  )
 }

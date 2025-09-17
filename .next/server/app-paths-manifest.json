@@ -1,7 +1,7 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/discover/page": "app/discover/page.js",
+  "/not-found": "app/not-found.js",
   "/chats/page": "app/chats/page.js",
+  "/discover/page": "app/discover/page.js",
   "/chat/[id]/page": "app/chat/[id]/page.js",
   "/profile/page": "app/profile/page.js",
   "/gallery/page": "app/gallery/page.js"

@@ -1,9 +1,15 @@
+import withPWA from 'next-pwa'
 
-/** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    typedRoutes: true,
-    serverActions: true,
-  },
-};
-export default nextConfig;
+  reactStrictMode: true,
+  swcMinify: true,
+}
+
+const pwaConfig = withPWA({
+  dest: 'public',
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_ENV === 'development',
+})
+
+export default pwaConfig(nextConfig)

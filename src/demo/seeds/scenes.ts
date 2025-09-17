@@ -1,0 +1,52 @@
+import { Scene } from '@/types'
+
+export const scenes: Scene[] = [
+  {
+    id: 'cab-meet',
+    title: 'Shared Cab Meet-cute',
+    description: 'Two consenting adults meet in a shared cab',
+    opener: 'We matched in a shared cab—want to keep talking?',
+    category: 'romance',
+    sfw: true
+  },
+  {
+    id: 'gym-umbrella',
+    title: 'Gym Umbrella',
+    description: 'You left your umbrella at my gym—coffee later?',
+    opener: 'You left your umbrella at my gym—coffee later?',
+    category: 'gym',
+    sfw: true
+  },
+  {
+    id: 'office-first-day',
+    title: 'First Day at Office',
+    description: 'First day at the new office—I think we just locked eyes',
+    opener: 'First day at the new office—I think we just locked eyes',
+    category: 'office',
+    sfw: true
+  },
+  {
+    id: 'holi-colors',
+    title: 'Holi Colors',
+    description: 'Holi colors still on my face—video call tonight?',
+    opener: 'Holi colors still on my face—video call tonight?',
+    category: 'festival',
+    sfw: true
+  },
+  {
+    id: 'neighbor-intro',
+    title: 'New Neighbor',
+    description: 'Just moved in next door—want to be friends?',
+    opener: 'Just moved in next door—want to be friends?',
+    category: 'neighbors',
+    sfw: true
+  },
+  {
+    id: 'college-library',
+    title: 'College Library',
+    description: 'Studying together in the library—distraction welcome',
+    opener: 'Studying together in the library—distraction welcome',
+    category: 'college',
+    sfw: true
+  }
+]

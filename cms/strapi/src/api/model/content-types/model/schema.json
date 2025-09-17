@@ -4,7 +4,8 @@
   "info": {
     "singularName": "model",
     "pluralName": "models",
-    "displayName": "Model"
+    "displayName": "AI Model",
+    "description": "AI companion models/characters"
   },
   "options": {
     "draftAndPublish": true
@@ -13,19 +14,70 @@
   "attributes": {
     "name": {
       "type": "string",
-      "required": true
+      "required": true,
+      "maxLength": 50
     },
     "tagline": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "maxLength": 100
     },
-    "langs": {
-      "type": "json"
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
     },
     "opener": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
-    "categories": {
-      "type": "json"
+    "personality": {
+      "type": "json",
+      "required": false
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "backgroundVideo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["videos"]
+    },
+    "languages": {
+      "type": "json",
+      "required": true
+    },
+    "isPopular": {
+      "type": "boolean",
+      "default": false
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "models"
+    },
+    "scenes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::scene.scene",
+      "mappedBy": "model"
     }
   }
 }

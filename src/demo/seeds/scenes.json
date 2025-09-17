@@ -1,32 +1,50 @@
-[
+export const scenes: Scene[] = [
   {
-    "id": "cab_meet_cute",
-    "name": "Shared cab meet‑cute",
-    "opener": "We matched in a shared cab—want to keep talking?"
+    id: 'cab-meet',
+    title: 'Shared Cab Meet-cute',
+    description: 'Two consenting adults meet in a shared cab',
+    opener: 'We matched in a shared cab—want to keep talking?',
+    category: 'romance',
+    sfw: true
   },
   {
-    "id": "office_peers",
-    "name": "Office after‑hours (peers)",
-    "opener": "We’re the last two in the office… should we take a break together?"
+    id: 'gym-umbrella',
+    title: 'Gym Umbrella',
+    description: 'You left your umbrella at my gym—coffee later?',
+    opener: 'You left your umbrella at my gym—coffee later?',
+    category: 'gym',
+    sfw: true
   },
   {
-    "id": "new_neighbours",
-    "name": "New neighbours",
-    "opener": "Hi, I just moved next door—need help setting up… or company?"
+    id: 'office-first-day',
+    title: 'First Day at Office',
+    description: 'First day at the new office—I think we just locked eyes',
+    opener: 'First day at the new office—I think we just locked eyes',
+    category: 'office',
+    sfw: true
   },
   {
-    "id": "gym_crush",
-    "name": "Gym crush",
-    "opener": "I’ve seen your workout—mind sharing a playlist while we chat?"
+    id: 'holi-colors',
+    title: 'Holi Colors',
+    description: 'Holi colors still on my face—video call tonight?',
+    opener: 'Holi colors still on my face—video call tonight?',
+    category: 'festival',
+    sfw: true
   },
   {
-    "id": "festival_flirt",
-    "name": "Festival flirt",
-    "opener": "Holi colours still on my face—video call tonight?"
+    id: 'neighbor-intro',
+    title: 'New Neighbor',
+    description: 'Just moved in next door—want to be friends?',
+    opener: 'Just moved in next door—want to be friends?',
+    category: 'neighbors',
+    sfw: true
   },
   {
-    "id": "college_reunion",
-    "name": "College reunion (21+)",
-    "opener": "Guess who I spotted at the reunion—you."
+    id: 'college-library',
+    title: 'College Library',
+    description: 'Studying together in the library—distraction welcome',
+    opener: 'Studying together in the library—distraction welcome',
+    category: 'college',
+    sfw: true
   }
 ]

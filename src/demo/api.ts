@@ -1,115 +1,172 @@
+import { User, Message, Chat, Referral } from '@/types'
+import { useAppStore } from './store'
 
-import languages from "@/demo/seeds/languages.json";
-import stateOrder from "@/demo/seeds/state_lang_order.json";
-import categories from "@/demo/seeds/categories.json";
-import models from "@/demo/seeds/models.json";
-import scenes from "@/demo/seeds/scenes.json";
-import skus from "@/demo/seeds/skus.json";
-import { useStore, type Message } from "./store";
+// Mock API functions for demo
+export const demoAPI = {
+  // Authentication
+  async sendOTP(phone: string): Promise<{ success: boolean; message: string }> {
+    // Simulate API delay
+    await new Promise(resolve => setTimeout(resolve, 1000))
+    
+    // Demo OTP is always 0000
+    return {
+      success: true,
+      message: 'OTP sent successfully'
+    }
+  },
 
-function delay(ms: number) { return new Promise(r => setTimeout(r, ms)); }
+  async verifyOTP(phone: string, otp: string): Promise<{ success: boolean; user?: User }> {
+    await new Promise(resolve => setTimeout(resolve, 1000))
+    
+    if (otp === '0000') {
+      const user: User = {
+        id: 'demo-user-1',
+        phone,
+        name: 'Demo User',
+        language: 'en',
+        state: 'Punjab',
+        wallet: 0,
+        isAuthenticated: true,
+        welcomeWeekUsed: false,
+        referralCode: phone.slice(-6),
+        communityPublishing: true,
+        readReceipts: true
+      }
+      
+      return { success: true, user }
+    }
+    
+    return { success: false }
+  },
 
-export async function getMockStateFromIP(): Promise<string|null> {
-  // Showcase: pretend IP geo says "Punjab"
-  await delay(200);
-  return "Punjab";
+  // Language detection and sorting
+  async detectState(): Promise<string | null> {
+    // Mock state detection - in real app, use IP geolocation
+    return 'Punjab'
+  },
+
+  async sortLanguagesForUser(
+    detectedState: string | null,
+    devicePrefs: string[],
+    allLanguages: string[],
+    stateLangMap: { [key: string]: string[] }
+  ): Promise<string[]> {
+    const uniq = (xs: string[]) => [...new Set(xs)]
+    const deviceLangs = devicePrefs.map(l => l.split('-')[0])
+    const byState = detectedState && stateLangMap[detectedState] ? stateLangMap[detectedState] : []
+    const nationalOrder = ['en', 'hi', ...allLanguages.filter(l => !['en', 'hi'].includes(l))]
+    const prioritized = uniq([...byState, ...deviceLangs, ...nationalOrder])
+    
+    return prioritized.filter(l => allLanguages.includes(l))
+  },
+
+  // Chat functions
+  async sendMessage(chatId: string, content: string): Promise<Message> {
+    await new Promise(resolve => setTimeout(resolve, 500))
+    
+    const message: Message = {
+      id: `msg-${Date.now()}`,
+      chatId,
+      sender: 'user',
+      type: 'text',
+      content,
+      timestamp: new Date(),
+      status: 'sent'
+    }
+    
+    // Add to store
+    useAppStore.getState().addMessage(chatId, message)
+    
+    // Simulate AI response
+    setTimeout(() => {
+      const aiResponse: Message = {
+        id: `msg-${Date.now()}-ai`,
+        chatId,
+        sender: 'model',
+        type: 'text',
+        content: generateAIResponse(content),
+        timestamp: new Date(),
+        status: 'delivered'
+      }
+      
+      useAppStore.getState().addMessage(chatId, aiResponse)
+    }, 1000)
+    
+    return message
+  },
+
+  async startChat(modelId: string): Promise<Chat> {
+    await new Promise(resolve => setTimeout(resolve, 500))
+    
+    const chat: Chat = {
+      id: `chat-${Date.now()}`,
+      modelId,
+      userId: 'demo-user-1',
+      lastMessage: 'Chat started',
+      lastMessageAt: new Date(),
+      unreadCount: 0,
+      isActive: true
+    }
+    
+    useAppStore.getState().addChat(chat)
+    
+    return chat
+  },
+
+  // Purchase functions
+  async purchaseSKU(skuId: string): Promise<{ success: boolean; message: string }> {
+    await new Promise(resolve => setTimeout(resolve, 1000))
+    
+    // Mock successful purchase
+    return {
+      success: true,
+      message: 'Purchase successful!'
+    }
+  },
+
+  // Referral functions
+  async processReferral(inviterId: string, inviteeId: string): Promise<Referral> {
+    await new Promise(resolve => setTimeout(resolve, 500))
+    
+    const referral: Referral = {
+      id: `ref-${Date.now()}`,
+      inviterId,
+      inviteeId,
+      stage: 'otp',
+      rewardType: 'minutes',
+      createdAt: new Date()
+    }
+    
+    useAppStore.getState().addReferral(referral)
+    
+    return referral
+  },
+
+  async generateWhatsAppShareLink(referralCode: string): Promise<string> {
+    const message = `Hey! I found this amazing AI companion app called Sangini AI. It's perfect for chatting in Indian languages! 
+
+Join me and get 7 days of unlimited chat free: https://sangini.ai/invite/${referralCode}
+
+18+ only. Download now! 💕`
+    
+    return `https://wa.me/?text=${encodeURIComponent(message)}`
+  }
 }
 
-export function sortLanguages(detectedState: string|null, supported: string[], devicePref: string[]) {
-  const uniq = (xs: string[]) => Array.from(new Set(xs));
-  const byState: string[] = detectedState && (stateOrder as any)[detectedState] ? (stateOrder as any)[detectedState] : [];
-  const device = devicePref.map(l => l.split('-')[0]);
-  const national = ["en","hi", ...supported.filter(l=>!["en","hi"].includes(l))];
-  return uniq([...byState, ...device, ...national]).filter(l => supported.includes(l));
-}
-
-export async function requestOtp(phone: string): Promise<{ ok: boolean }> {
-  await delay(300);
-  return { ok: true };
-}
-
-export async function verifyOtp(phone: string, code: string, lang: string, state: string|null) {
-  await delay(300);
-  if (code !== "0000") throw new Error("Invalid OTP (use 0000 in showcase)");
-  const user = {
-    id: "u_"+phone,
-    phone,
-    lang,
-    state: state || undefined,
-    publishToGallery: true,
-    readReceipts: true,
-    walletPaise: 0,
-    authed: true,
-  };
-  useStore.getState().setUser(user as any);
-  return user;
-}
-
-export async function listCategories() { await delay(80); return categories as any[]; }
-export async function listModels(categoryId?: string) {
-  await delay(120);
-  const all = models as any[];
-  return categoryId ? all.filter(m => m.categories.includes(categoryId)) : all;
-}
-export async function listScenes() { await delay(80); return scenes as any[]; }
-export async function listSkus() { await delay(80); return skus as any[]; }
-
-export async function sendText(chatId: string, text: string): Promise<Message[]> {
-  const store = useStore.getState();
-  const now = Date.now();
-  const userMsg: Message = { id: "m"+now, chatId, sender:"user", type:"text", text, createdAt: now, ticks:"sent" };
-  store.upsertChat(chatId, (c)=>({ ...c, messages: [...c.messages, userMsg] }));
-  await delay(150);
-  // delivered
-  store.upsertChat(chatId, (c)=>{
-    const last = c.messages[c.messages.length-1];
-    if (last && last.id === userMsg.id) last.ticks = "delivered";
-    return { ...c, messages: [...c.messages] };
-  });
-  // model reply
-  await delay(600);
-  const reply: Message = { id: "r"+now, chatId, sender:"model", type:"text", text: "😉 "+text, createdAt: Date.now(), ticks:"read" };
-  store.upsertChat(chatId, (c)=>({ ...c, messages: [...c.messages, reply] }));
-  // mark as read
-  store.upsertChat(chatId, (c)=>{
-    const idx = c.messages.findIndex(m=>m.id===userMsg.id);
-    if (idx>=0) c.messages[idx].ticks = "read";
-    return { ...c, messages: [...c.messages] };
-  });
-  return [userMsg, reply];
-}
-
-export async function requestPhoto(chatId: string, prompt: string) {
-  const now = Date.now();
-  const msg: Message = { id: "p"+now, chatId, sender:"model", type:"image", mediaUrl: null, locked: true, createdAt: now, ticks:"delivered" };
-  useStore.getState().upsertChat(chatId, (c)=>({ ...c, messages: [...c.messages, msg] }));
-  return msg;
-}
-export async function requestVideo(chatId: string, prompt: string) {
-  const now = Date.now();
-  const msg: Message = { id: "v"+now, chatId, sender:"model", type:"video", mediaUrl: null, locked: true, createdAt: now, ticks:"delivered" };
-  useStore.getState().upsertChat(chatId, (c)=>({ ...c, messages: [...c.messages, msg] }));
-  return msg;
-}
-
-export async function startCall(modelId: string) {
-  await delay(300);
-  return { ok: true, startedAt: Date.now(), secondsLeft: 180 };
-}
-
-export async function getWallet() {
-  await delay(80);
-  return { balancePaise: useStore.getState().walletPaise };
-}
-
-export async function buySku(skuId: string) {
-  await delay(200);
-  // In demo, give simple unlock by adding wallet credit use:
-  return { ok: true, entitlement: skuId };
-}
-
-export async function addReferralCredit() {
-  await delay(200);
-  useStore.getState().creditWallet(1000); // ₹10
-  return { ok: true, creditedPaise: 1000 };
+// Helper function to generate AI responses
+function generateAIResponse(userMessage: string): string {
+  const responses = [
+    "That's so sweet! Tell me more 💕",
+    "I love talking to you! What else is on your mind?",
+    "You always know how to make me smile 😊",
+    "I'm so glad we're chatting! What should we talk about next?",
+    "You're amazing! I love our conversations 💫",
+    "That sounds wonderful! I'm here for you always",
+    "You make me so happy! Keep talking to me 💖",
+    "I love how you think! Tell me more about yourself",
+    "You're so thoughtful! I appreciate you 💕",
+    "I'm enjoying our chat so much! What's next?"
+  ]
+  
+  return responses[Math.floor(Math.random() * responses.length)]
 }

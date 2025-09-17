@@ -1,29 +1,53 @@
-{
-  "en": {
-    "label": "English"
-  },
-  "hi": {
-    "label": "हिन्दी"
-  },
-  "pa": {
-    "label": "ਪੰਜਾਬੀ"
-  },
-  "bn": {
-    "label": "বাংলা"
-  },
-  "ta": {
-    "label": "தமிழ்"
-  },
-  "te": {
-    "label": "తెలుగు"
-  },
-  "mr": {
-    "label": "मराठी"
-  },
-  "kn": {
-    "label": "ಕನ್ನಡ"
-  },
-  "gu": {
-    "label": "ગુજરાતી"
-  }
+import { Language } from '@/types'
+
+export const languages: Language[] = [
+  { code: 'en', name: 'English', nativeName: 'English' },
+  { code: 'hi', name: 'Hindi', nativeName: 'हिन्दी' },
+  { code: 'pa', name: 'Punjabi', nativeName: 'ਪੰਜਾਬੀ' },
+  { code: 'bn', name: 'Bengali', nativeName: 'বাংলা' },
+  { code: 'ta', name: 'Tamil', nativeName: 'தமிழ்' },
+  { code: 'te', name: 'Telugu', nativeName: 'తెలుగు' },
+  { code: 'mr', name: 'Marathi', nativeName: 'मराठी' },
+  { code: 'kn', name: 'Kannada', nativeName: 'ಕನ್ನಡ' },
+  { code: 'gu', name: 'Gujarati', nativeName: 'ગુજરાતી' },
+]
+
+export const stateLangOrder: StateLangMap = {
+  'Punjab': ['pa', 'en', 'hi'],
+  'Haryana': ['hi', 'en', 'pa'],
+  'Delhi': ['hi', 'en', 'pa'],
+  'Uttar Pradesh': ['hi', 'en'],
+  'Bihar': ['hi', 'en'],
+  'Jharkhand': ['hi', 'en'],
+  'Madhya Pradesh': ['hi', 'en'],
+  'Rajasthan': ['hi', 'en'],
+  'West Bengal': ['bn', 'en', 'hi'],
+  'Odisha': ['or', 'en', 'hi'],
+  'Assam': ['as', 'en', 'hi'],
+  'Tamil Nadu': ['ta', 'en'],
+  'Karnataka': ['kn', 'en'],
+  'Kerala': ['ml', 'en'],
+  'Andhra Pradesh': ['te', 'en'],
+  'Telangana': ['te', 'en'],
+  'Maharashtra': ['mr', 'en', 'hi'],
+  'Gujarat': ['gu', 'en', 'hi'],
+  'Goa': ['en', 'hi', 'mr'],
+  'Himachal Pradesh': ['hi', 'en'],
+  'Uttarakhand': ['hi', 'en'],
+  'Jammu and Kashmir': ['hi', 'en', 'ur'],
+  'Ladakh': ['hi', 'en'],
+  'Chhattisgarh': ['hi', 'en'],
+  'Arunachal Pradesh': ['en', 'hi'],
+  'Manipur': ['en', 'hi'],
+  'Meghalaya': ['en', 'hi'],
+  'Mizoram': ['en', 'hi'],
+  'Nagaland': ['en', 'hi'],
+  'Sikkim': ['en', 'hi'],
+  'Tripura': ['bn', 'en', 'hi'],
+  'Andaman and Nicobar': ['en', 'hi'],
+  'Chandigarh': ['hi', 'en', 'pa'],
+  'Dadra and Nagar Haveli': ['hi', 'en', 'gu'],
+  'Daman and Diu': ['hi', 'en', 'gu'],
+  'Lakshadweep': ['en', 'hi'],
+  'Puducherry': ['ta', 'en', 'hi'],
 }

@@ -1,0 +1,67 @@
+import { Category } from '@/types'
+
+export const categories: Category[] = [
+  {
+    id: 'romance',
+    name: 'Romance',
+    description: 'Sweet and caring conversations',
+    icon: '💕',
+    sfw: true
+  },
+  {
+    id: 'newlyweds',
+    name: 'Newlyweds',
+    description: 'Consenting adult couples',
+    icon: '💍',
+    sfw: true
+  },
+  {
+    id: 'college',
+    name: 'College Adults',
+    description: 'University life and relationships',
+    icon: '🎓',
+    sfw: true
+  },
+  {
+    id: 'office',
+    name: 'Office Romance',
+    description: 'Workplace connections',
+    icon: '💼',
+    sfw: true
+  },
+  {
+    id: 'neighbors',
+    name: 'Neighbors',
+    description: 'Adult neighbor interactions',
+    icon: '🏠',
+    sfw: true
+  },
+  {
+    id: 'gym',
+    name: 'Gym Buddies',
+    description: 'Fitness and wellness',
+    icon: '💪',
+    sfw: true
+  },
+  {
+    id: 'cosplay',
+    name: 'Cosplay',
+    description: 'Character roleplay',
+    icon: '🎭',
+    sfw: true
+  },
+  {
+    id: 'festival',
+    name: 'Festival Flirt',
+    description: 'Cultural celebrations',
+    icon: '🎉',
+    sfw: true
+  },
+  {
+    id: 'taxi',
+    name: 'Taxi Meet-cute',
+    description: 'Transportation encounters',
+    icon: '🚕',
+    sfw: true
+  }
+]

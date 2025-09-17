@@ -4,7 +4,8 @@
   "info": {
     "singularName": "banner",
     "pluralName": "banners",
-    "displayName": "Banner"
+    "displayName": "Banner",
+    "description": "Promotional banners and announcements"
   },
   "options": {
     "draftAndPublish": true
@@ -12,16 +13,49 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "maxLength": 100
     },
-    "body": {
-      "type": "text"
+    "description": {
+      "type": "text",
+      "required": true
     },
-    "cta": {
-      "type": "string"
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
     },
-    "deepLink": {
-      "type": "string"
+    "link": {
+      "type": "string",
+      "required": false
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["promo", "announcement", "feature", "offer"],
+      "default": "promo"
+    },
+    "position": {
+      "type": "enumeration",
+      "enum": ["top", "middle", "bottom"],
+      "default": "top"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    },
+    "startDate": {
+      "type": "datetime",
+      "required": false
+    },
+    "endDate": {
+      "type": "datetime",
+      "required": false
     }
   }
 }

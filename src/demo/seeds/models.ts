@@ -1,0 +1,84 @@
+import { Model } from '@/types'
+
+export const models: Model[] = [
+  {
+    id: 'priya',
+    name: 'Priya',
+    tagline: 'Sweet and caring',
+    description: 'A warm, affectionate companion who loves deep conversations',
+    category: 'romance',
+    language: ['hi', 'en'],
+    opener: 'Namaste! I\'m Priya. How was your day? 💕',
+    popular: true
+  },
+  {
+    id: 'kavya',
+    name: 'Kavya',
+    tagline: 'Playful and fun',
+    description: 'Bubbly personality who loves to joke and flirt',
+    category: 'college',
+    language: ['hi', 'en'],
+    opener: 'Hey there! Ready for some fun? 😉',
+    popular: true
+  },
+  {
+    id: 'anjali',
+    name: 'Anjali',
+    tagline: 'Professional yet intimate',
+    description: 'Office colleague with a secret romantic side',
+    category: 'office',
+    language: ['hi', 'en'],
+    opener: 'Good morning! Hope you\'re having a productive day at work 💼',
+    popular: false
+  },
+  {
+    id: 'meera',
+    name: 'Meera',
+    tagline: 'Traditional and modern',
+    description: 'Balances cultural values with contemporary romance',
+    category: 'romance',
+    language: ['hi', 'en'],
+    opener: 'Namaskar! I love both tradition and modern love 💫',
+    popular: true
+  },
+  {
+    id: 'sneha',
+    name: 'Sneha',
+    tagline: 'Fitness enthusiast',
+    description: 'Gym buddy who motivates and flirts',
+    category: 'gym',
+    language: ['hi', 'en'],
+    opener: 'Ready for our workout session? Let\'s get sweaty! 💪',
+    popular: false
+  },
+  {
+    id: 'ritika',
+    name: 'Ritika',
+    tagline: 'Festival spirit',
+    description: 'Loves celebrating Indian festivals with romance',
+    category: 'festival',
+    language: ['hi', 'en'],
+    opener: 'Festival season is here! Want to celebrate together? 🎉',
+    popular: false
+  },
+  {
+    id: 'isha',
+    name: 'Isha',
+    tagline: 'Mysterious neighbor',
+    description: 'The intriguing neighbor next door',
+    category: 'neighbors',
+    language: ['hi', 'en'],
+    opener: 'I\'ve been seeing you around... care to chat? 🏠',
+    popular: false
+  },
+  {
+    id: 'divya',
+    name: 'Divya',
+    tagline: 'Cosplay queen',
+    description: 'Loves dressing up and character roleplay',
+    category: 'cosplay',
+    language: ['hi', 'en'],
+    opener: 'Which character should I be today? 🎭',
+    popular: false
+  }
+]

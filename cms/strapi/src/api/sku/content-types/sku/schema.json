@@ -4,33 +4,68 @@
   "info": {
     "singularName": "sku",
     "pluralName": "skus",
-    "displayName": "SKU"
+    "displayName": "SKU",
+    "description": "Product SKUs for monetization"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "label": {
+    "name": {
       "type": "string",
+      "required": true,
+      "maxLength": 100
+    },
+    "description": {
+      "type": "text",
       "required": true
     },
-    "pricePaise": {
-      "type": "integer",
+    "price": {
+      "type": "decimal",
       "required": true
     },
-    "benefits": {
-      "type": "json"
+    "currency": {
+      "type": "string",
+      "default": "INR",
+      "maxLength": 3
     },
-    "kind": {
+    "type": {
       "type": "enumeration",
-      "enum": [
-        "text",
-        "bundle",
-        "call",
-        "image"
-      ],
-      "default": "text"
+      "enum": ["quick", "tonight", "day", "week", "month", "topup"],
+      "required": true
+    },
+    "features": {
+      "type": "json",
+      "required": true
+    },
+    "minutes": {
+      "type": "integer",
+      "required": false
+    },
+    "messages": {
+      "type": "integer",
+      "required": false
+    },
+    "images": {
+      "type": "integer",
+      "required": false
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    },
+    "isPopular": {
+      "type": "boolean",
+      "default": false
+    },
+    "validityDays": {
+      "type": "integer",
+      "required": false
     }
   }
 }

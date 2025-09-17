@@ -4,7 +4,8 @@
   "info": {
     "singularName": "category",
     "pluralName": "categories",
-    "displayName": "Category"
+    "displayName": "Category",
+    "description": "AI companion categories for filtering"
   },
   "options": {
     "draftAndPublish": true
@@ -13,14 +14,40 @@
   "attributes": {
     "name": {
       "type": "string",
+      "required": true,
+      "maxLength": 50
+    },
+    "description": {
+      "type": "text",
       "required": true
     },
-    "order": {
-      "type": "integer"
+    "icon": {
+      "type": "string",
+      "required": true,
+      "maxLength": 10
     },
     "slug": {
       "type": "uid",
-      "targetField": "name"
+      "targetField": "name",
+      "required": true
+    },
+    "sfw": {
+      "type": "boolean",
+      "default": true
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "models": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::model.model",
+      "mappedBy": "category"
     }
   }
 }
